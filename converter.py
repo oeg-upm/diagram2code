@@ -1,4 +1,5 @@
 import argparse
+import json
 
 from source.chowlk.transformations import transform_ontology
 from source.chowlk.utils import read_drawio_xml
@@ -8,6 +9,8 @@ def main(diagram_path, output_path, type, format):
 
     root = read_drawio_xml(diagram_path)
     ontology_turtle, ontology_xml, namespaces, errors = transform_ontology(root)
+
+    print(json.dumps(errors, sort_keys=True, indent=4))
 
     file = open(output_path, mode="w")
 
