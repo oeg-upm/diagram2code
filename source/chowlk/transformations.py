@@ -8,10 +8,10 @@ import os
 
 def transform_ontology(root):
     finder = Finder(root)
-    concepts, attribute_blocks, relations, individuals, anonymous_concepts, metadata, namespaces, rhombuses, errors = finder.find_elements()
+    concepts, attribute_blocks, datatypes, relations, individuals, anonymous_concepts, metadata, namespaces, rhombuses, errors = finder.find_elements()
     values = finder.find_attribute_values()
     prefixes_identified = find_prefixes(concepts, relations, attribute_blocks, individuals)
-    relations, attribute_blocks = enrich_properties(rhombuses, relations, attribute_blocks)
+    relations, attribute_blocks = enrich_properties(rhombuses, relations, attribute_blocks, concepts)
     attribute_blocks = resolve_concept_reference(attribute_blocks, concepts)
     associations = concept_attribute_association(concepts, attribute_blocks)
     associations, relations = concept_relation_association(associations, relations)
@@ -23,6 +23,7 @@ def transform_ontology(root):
 
     file, onto_prefix, onto_uri, new_namespaces = get_ttl_template(namespaces, prefixes_identified)
     file = write_ontology_metadata(file, metadata, onto_uri)
+    file = write_ontology_datatypes(file, datatypes)
     file = write_object_properties(file, relations, concepts, anonymous_concepts, attribute_blocks)
     file = write_data_properties(file, attribute_blocks, concepts)
     file = write_concepts(file, concepts, anonymous_concepts, associations)

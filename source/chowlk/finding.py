@@ -55,7 +55,7 @@ class Finder():
                 # Looking for ellipses in a second iteration
                 for child2 in self.root:
                     style2 = child2.attrib["style"] if "style" in child2.attrib else ""
-                    if source == child2.attrib["id"] and "ellipse" in style2:
+                    if source == child2.attrib["id"] and "ellipse" in style2 and "open" in style:
                         # This edge is part of a unionOf / intersectionOf construct
                         # it is not useful beyond that construction
                         relation["type"] = "ellipse_connection"
@@ -267,7 +267,27 @@ class Finder():
                         continue
 
         return self.ontology_metadata
+    
+    ######################################
+    # Possibily to add custom datatypes
 
+    def find_datatypes(self):
+
+        for child in self.root:
+
+            style = child.attrib["style"] if "style" in child.attrib else ""
+            value = child.attrib["value"] if "value" in child.attrib else ""
+
+            if "shape=parallelogram" in style:
+                text = clean_html_tags(value)
+                datatypes = text.split("|")
+                print(datatypes)
+                self.ontology_datatypes = datatypes
+                break
+            else: 
+                self.ontology_datatypes = []
+
+        return self.ontology_datatypes
 
     def find_ellipses(self):
 
@@ -583,8 +603,8 @@ class Finder():
                             
                             try:
                                 if len(attribute_value.split(":")) > 2:
-                                    final_datatype = attribute_value.split(":")[2].strip()
-                                    final_datatype = final_datatype[0].lower() + final_datatype[1:]
+                                    final_datatype = attribute_value.split(" ")[1].strip()
+
                                     attribute["datatype"] = final_datatype
                                 else:
                                     attribute["datatype"] = None
@@ -741,10 +761,11 @@ class Finder():
 
         namespaces = self.find_namespaces()
         metadata = self.find_metadata()
+        datatypes = self.find_datatypes()
         relations = self.find_relations()
         ellipses = self.find_ellipses()
         individuals = self.find_individuals()
         concepts, attribute_blocks = self.find_concepts_and_attributes()
         rhombuses, errors = self.find_rhombuses()
 
-        return concepts, attribute_blocks, relations, individuals, ellipses, metadata, namespaces, rhombuses, errors
+        return concepts, attribute_blocks, datatypes, relations, individuals, ellipses, metadata, namespaces, rhombuses, errors

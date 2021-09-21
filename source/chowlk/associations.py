@@ -128,7 +128,7 @@ def individual_type_identification(individuals, associations, relations):
 
 
 
-def enrich_properties(rhombuses, relations, attribute_blocks):
+def enrich_properties(rhombuses, relations, attribute_blocks, concepts):
 
     relations_byname = {relation["uri"]: id for id, relation in relations.items() if "uri" in relation}
     attributes_byname = {attribute["uri"]: [id, idx] for id, attribute_block in attribute_blocks.items()
@@ -179,6 +179,9 @@ def enrich_properties(rhombuses, relations, attribute_blocks):
                     sprop_id = attributes_byname[sprop_name][0]
                     sprop_idx = attributes_byname[sprop_name][1]
                     attribute_blocks[sprop_id]["attributes"][sprop_idx][type] = target_id
+                    
+                    if type == "range":
+                        attribute_blocks[sprop_id]["attributes"][sprop_idx]["datatype"] = concepts[target_id]["prefix"] + ":" + concepts[target_id]["label"]
 
 
     for rhombus_id, rhombus in rhombuses.items():

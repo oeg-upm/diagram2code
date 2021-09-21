@@ -4,17 +4,6 @@ def get_ttl_template(namespaces, prefixes_fonded):
 
     file = tempfile.TemporaryFile(mode='w+', encoding="utf-8")
 
-    #file = open(filename, 'w', encoding="utf-8")
-
-    file.write("@prefix owl: <http://www.w3.org/2002/07/owl#> .\n"
-               "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n"
-               "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n"
-               "@prefix xml: <http://www.w3.org/XML/1998/namespace> .\n"
-               "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n"
-               "@prefix dc: <http://purl.org/dc/elements/1.1/> .\n"
-               "@prefix dcterms: <http://purl.org/dc/terms/> .\n"
-               "@prefix vann: <http://purl.org/vocab/vann/> .\n")
-
     not_found = []
     for prefix in prefixes_fonded:
         if prefix not in namespaces:
@@ -58,6 +47,19 @@ def write_ontology_metadata(file, metadata, onto_uri):
 
     return file
 
+#######################################""
+# Writing of custom datatypes
+def write_ontology_datatypes(file, datatypes):
+    file.write("#################################################################\n"
+               "#    DataTypes\n"
+               "#################################################################\n\n")
+    for datatype in datatypes:
+        file.write(datatype + " rdf:type rdfs:Datatype .\n")
+    file.write("\n\n")
+
+    return file
+
+
 
 def write_object_properties(file, relations, concepts, anonymous_concepts, attribute_blocks):
 
@@ -93,22 +95,29 @@ def write_object_properties(file, relations, concepts, anonymous_concepts, attri
                 file.write("\t\t\towl:InverseFunctionalProperty")
 
             if relation["domain"]:
-                concept_id = relation["domain"]
-                if concept_id in concepts:
+                file.write(" ;\n")
+                ###########################################""
+                # Possibility to add union (or other aggregation) as domain
+                try:
+                    #concept_id = relation["target"]
+                    concept_id = relation["domain"]
                     concept = concepts[concept_id]
                     domain_name = concept["prefix"] + ":" + concept["uri"]
-                elif concept_id in attribute_blocks:
-                    concept_id = attribute_blocks[concept_id]["concept_associated"]
-                    concept = concepts[concept_id]
-                    domain_name = concept["prefix"] + ":" + concept["uri"]
-                else:
-                    domain_name = ":"
-
-                # Avoid blank nodes
-                if domain_name != ":":
-                    file.write(" ;\n")
                     file.write("\t\trdfs:domain " + domain_name)
+                except:
+                    blank_id = relation["domain"]
+                    group_node = anonymous_concepts[blank_id]
+                    concept_ids = group_node["group"]
+                    concept_names = [concepts[id]["prefix"] + ":" + concepts[id]["uri"] for id in concept_ids]
+                    file.write("\t\trdfs:domain [ " + group_node["type"] + " ( \n")
+                    group_node["type"]
+                    for name in concept_names:
+                        file.write("\t\t\t\t\t\t" + name + "\n")
 
+                    file.write("\t\t\t\t\t) ;\n")
+                    file.write("\t\t\t\t\trdf:type owl:Class\n")
+                    file.write("\t\t\t\t\t]")
+                    
             if relation["range"]:
                 try:
                     concept_id = relation["range"]
@@ -144,7 +153,6 @@ def write_object_properties(file, relations, concepts, anonymous_concepts, attri
                 file.write("\t\towl:equivalentProperty " + relation["owl:equivalentProperty"])
 
             file.write(" ;\n")
-            file.write("\t\trdfs:label \"" + relation["label"] + "\"")
             file.write(" .\n\n")
 
     return file
@@ -184,7 +192,7 @@ def write_data_properties(file, attribute_blocks, concepts):
 
             if attribute["range"] and attribute["datatype"]:
                 file.write(" ;\n")
-                file.write("\t\trdfs:range xsd:" + attribute["datatype"])
+                file.write("\t\trdfs:range " + attribute["datatype"])
 
             if "rdfs:subPropertyOf" in attribute:
                 file.write(" ;\n")
@@ -195,7 +203,6 @@ def write_data_properties(file, attribute_blocks, concepts):
                 file.write("\t\towl:equivalentProperty " + attribute["owl:equivalentProperty"])
 
             file.write(" ;\n")
-            file.write("\t\trdfs:label \"" + attribute["label"] + "\"")
             file.write(" .\n\n")
             attributes_reviewed.append(full_name)
 
@@ -219,8 +226,6 @@ def write_concepts(file, concepts, anonymous_concepts, associations):
             continue
         file.write("### " + concept_prefix + ":" + concept_uri + "\n")
         file.write(concept_prefix + ":" + concept_uri + " rdf:type owl:Class ;\n")
-        file.write("\trdfs:label \"" + concept["label"] + "\"")
-
         attribute_blocks = association["attribute_blocks"]
         relations = association["relations"]
         subclassof_statement_done = False
@@ -247,7 +252,7 @@ def write_concepts(file, concepts, anonymous_concepts, associations):
                         file.write(" ,\n")
                     file.write("\t\t[ rdf:type owl:Restriction ;\n")
                     file.write("\t\t  owl:onProperty " + attribute["prefix"] + ":" + attribute["uri"] + " ;\n")
-                    file.write("\t\t  owl:allValuesFrom xsd:" + attribute["datatype"] + " ]")
+                    file.write("\t\t  owl:allValuesFrom " + attribute["datatype"] + " ]")
 
                 elif attribute["someValuesFrom"] and attribute["prefix"] and attribute["uri"] and attribute["datatype"]:
                     if not subclassof_statement_done:
@@ -258,7 +263,7 @@ def write_concepts(file, concepts, anonymous_concepts, associations):
                         file.write(" ,\n")
                     file.write("\t\t[ rdf:type owl:Restriction ;\n")
                     file.write("\t\t  owl:onProperty " + attribute["prefix"] + ":" + attribute["uri"] + " ;\n")
-                    file.write("\t\t  owl:someValuesFrom xsd:" + attribute["datatype"] + " ]")
+                    file.write("\t\t  owl:someValuesFrom " + attribute["datatype"] + " ]")
 
                 if attribute["min_cardinality"] is not None and attribute["prefix"] and attribute["uri"]:
                     if not subclassof_statement_done:
