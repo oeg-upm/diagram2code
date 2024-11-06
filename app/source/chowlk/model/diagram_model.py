@@ -1115,7 +1115,6 @@ class Diagram_model():
     # 7) The uri of the name defined in the arrow
     # 8) An auto generated label
     def add_value_to_arrow(self, relation, html_value, style, id):
-
         value = clean_html_tags(html_value)
 
         # Has the arrow a source element from which it departs?
@@ -1200,7 +1199,13 @@ class Diagram_model():
         # Obtain the prefix and suffix defined in the arrrow name
         try:
             uri = clean_uri(value)
-            uri = uri.split("|")[-1].strip().split(">>")[-1].strip()
+
+            #uri = uri.split("|")[-1].strip().split(">>")[-1].strip()
+            uri = uri.split("|")[-1].strip()
+
+            if ">>" in uri:
+                self.generate_error("Problems in the text of the arrow", id, value, "Arrows")
+                return
 
             relation["prefix"], relation["uri"] = parse_prefix_uri(uri)
 
@@ -1208,7 +1213,7 @@ class Diagram_model():
             if not relation["prefix"] and not relation["uri"]:
                 self.generate_error("The relation URI has not a valid identifier", id, value, "Arrows")
                 return
-            
+
             relation["label"] = create_label(relation["prefix"], relation["uri"], "property")
 
         except:
