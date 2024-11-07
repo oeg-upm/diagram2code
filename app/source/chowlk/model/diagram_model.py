@@ -11,7 +11,7 @@ rhombus_valid_types = ["owl:ObjectProperty", "owl:DatatypeProperty", "owl:Functi
 # these are special types that can be defined in an arrow
 edge_types = ["rdfs:subClassOf", "rdf:type", "owl:equivalentClass", "owl:disjointWith", "owl:complementOf",
                         "rdfs:subPropertyOf", "owl:equivalentProperty", "owl:inverseOf", "rdfs:domain", "rdfs:range",
-                        "owl:sameAs", "owl:differentFrom", "owl:propertyDisjointWith"]
+                        "owl:sameAs", "owl:differentFrom", "owl:propertyDisjointWith", "owl:propertyChainAxiom"]
 
 class Diagram_model():
 

@@ -173,3 +173,27 @@ def obtain_complement_restriction_of_classes(anonymous_classes, object, relation
                     predicate = "[ rdf:type owl:Class ;" + predicate + "\t\t]"
 
     return predicate
+
+# Function to obtain the properties which are part of a property chain axiom. A property chain axiom is defined
+# through a collection where the order matters
+def obtain_elements_property_chain(diagram_model, relations, relation_id):
+    text = ""
+    # Check if really the element is an object property
+    if relation_id in relations:
+        # Get the object property
+        relation = relations[relation_id]
+        # Get the object property name
+        text = f" {base_directive_prefix(relation["prefix"])}{relation["uri"]} "
+
+        # Check if the end of path that defines the property chain axiom has been reached
+        if "aggregation" in relation:
+            
+            # Just one path can be defined, so the array should contains just one element
+            if len(relation["aggregation"]) > 1:
+                # Just one path can be defined in a property chain axiom
+                diagram_model.generate_error("Just one path can be defined in a property chain axiom", relation_id, text, "Rhombuses")
+
+            # Go to the next element
+            text += obtain_elements_property_chain(diagram_model, relations, relation["aggregation"][0][0])
+    
+    return text

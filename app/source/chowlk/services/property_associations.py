@@ -14,6 +14,40 @@ def enrich_properties(diagram_model):
     check_rhombus_names(rhombuses, relations_copy, diagram_model)
     
     diagram_model.set_arrows(relations_copy)
+    check_property_aggregations(diagram_model)
+
+# Function to check if all the aggregations between properties are part of a path of a property chain
+def check_property_aggregations(diagram_model):
+    aggregations = []
+    propertyChain = []
+    arrows = diagram_model.get_arrows()
+    rhombuses = diagram_model.get_rhombuses()
+
+    for arrow_id, arrow in arrows.items():
+        arrow_type = arrow['type'] if 'type' in arrow else None
+        if arrow_type == 'aggregation':
+            aggregations.append(arrow_id)
+        elif arrow_type == 'owl:propertyChainAxiom':
+            target_id = arrow['target'] if 'target' in arrow else None
+
+            if target_id in arrows:
+                aux(arrows[target_id], propertyChain, arrows)
+    
+    for aggregation in aggregations:
+
+        if aggregation not in propertyChain:
+            diagram_model.generate_error(f'A path used to describe a property chain is not part of a correct property chain axiom', aggregation, None, "Rhombuses")
+
+def aux(target, propertyChain, arrows):
+    if "aggregation" in target:
+
+        for aggregation in target["aggregation"]:
+
+            if aggregation[1] not in propertyChain:
+                propertyChain.append(aggregation[1])
+            
+            if aggregation[0] in arrows:
+                aux(arrows[aggregation[0]], propertyChain, arrows)
 
 # The objective of this function is to find the relations between properties (e.g. rdfs:subPropertyOf) in order to
 # add that information into the properties (i.e. relations or attribute_blocks).
@@ -24,7 +58,8 @@ def enrich_properties_through_relations(diagram_model, relations, rhombuses, att
 
     # Name of allowed relations between properties, properties domain/range and annotation properties
     cases = ["rdfs:subPropertyOf", "owl:inverseOf",
-                 "owl:equivalentProperty", "rdfs:domain", "rdfs:range", "owl:propertyDisjointWith", "owl:AnnotationProperty"]
+                 "owl:equivalentProperty", "rdfs:domain", "rdfs:range", "owl:propertyDisjointWith", "owl:AnnotationProperty",
+                 "owl:propertyChainAxiom", "aggregation"]
     
     # Iterate all the arrows
     for arrow_id, arrow in relations.items():
@@ -74,15 +109,31 @@ def enrich_properties_through_relations(diagram_model, relations, rhombuses, att
 
                         # Has the source rhombus been defined as an object property?
                         if sprop_type == "owl:ObjectProperty":
-                            add_object_property_triple(relation_type, relations_copy, source_id, target_property_name)
+
+                            if relation_type == "owl:propertyChainAxiom":
+                                # Store the id of the target property
+                                add_object_property_triple(relation_type, relations_copy, source_id, target_id)
+                            
+                            elif relation_type == "aggregation":
+                                # Store the id of the target property and the id of the arrow
+                                add_object_property_triple(relation_type, relations_copy, source_id, [target_id, arrow_id])
+                            
+                            else:
+                                # Store the name of the target property
+                                add_object_property_triple(relation_type, relations_copy, source_id, target_property_name)
 
                         # Has the source rhombus been defined as a datatype property?
-                        elif sprop_type == "owl:DatatypeProperty":     
-                            # Add the relation to the corresponding datatype property.
-                            # Remember that in a rhombus just one datatype property can be defined 
-                            # (i.e. the array always have just one element).
-                            # attribute_blocks[source_id]["attributes"][0][relation_type] = target_property_name
-                            add_datatype_property_triple(relation_type, attribute_blocks, source_id, target_property_name)
+                        elif sprop_type == "owl:DatatypeProperty":
+                            # A owl:propertyChainAxiom and aggregation can not be defined between datatype properties
+                            if relation_type == "owl:propertyChainAxiom" or relation_type == "aggregation":
+                                value = f'{base_directive_prefix(source_property["prefix"])}{source_property["uri"]}'
+                                diagram_model.generate_error("A property chain can not been defined between datatype properties", source_id, value, "Rhombuses")
+                            else:
+                                # Add the relation to the corresponding datatype property.
+                                # Remember that in a rhombus just one datatype property can be defined 
+                                # (i.e. the array always have just one element).
+                                # attribute_blocks[source_id]["attributes"][0][relation_type] = target_property_name
+                                add_datatype_property_triple(relation_type, attribute_blocks, source_id, target_property_name)
 
                 else:
                     value = f'{base_directive_prefix(source_property["prefix"])}{source_property["uri"]}'
@@ -154,6 +205,9 @@ def enrich_properties_through_relations(diagram_model, relations, rhombuses, att
                         attribute_blocks[source_id]["attributes"][0]['annotation'].append(arrow_id)
                     else:
                         attribute_blocks[source_id]["attributes"][0]['annotation'] = [arrow_id]
+            
+            elif source_id in rhombuses or target_id in rhombuses:
+                diagram_model.generate_error(f'A {relation_type} relation just can be defined between rhombuses', source_id, None, "Rhombuses")
 
         # Is the arrow defining a non-valid relation between properties?
         elif source_id in rhombuses and target_id in rhombuses:

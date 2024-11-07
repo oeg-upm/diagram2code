@@ -380,7 +380,7 @@ function showError(item, body, errors){
         var listBullet = document.createElement('li');
         text = '';
         if(errors[j]['value']){
-            text = '<b>Value:</b> '  + errors[j]['value'];
+            text = '<b>Value:</b> '  + errors[j]['value'].replaceAll('<','&lt;').replaceAll('>','&gt;');
         }
         if(errors[j]['message']){
             if(text != ''){

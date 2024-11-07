@@ -42,6 +42,29 @@
             <mxPoint x="360" y="396" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="QsCOg0P8CIKrM8H12nyJ-82" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;endSize=8;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="x2lojsMZcXaRY4SJAVnc-1" target="QsCOg0P8CIKrM8H12nyJ-84">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="290" as="sourcePoint" />
+            <mxPoint x="370" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QsCOg0P8CIKrM8H12nyJ-83" value="&amp;lt;&amp;lt;owl:propertyChainAxiom&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="QsCOg0P8CIKrM8H12nyJ-82">
+          <mxGeometry x="-0.3277" relative="1" as="geometry">
+            <mxPoint x="24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QsCOg0P8CIKrM8H12nyJ-84" value="&lt;div&gt;&amp;lt;&amp;lt;owl:ObjectProperty&amp;gt;&amp;gt; ns:objectProperty5&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="377" y="260" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QsCOg0P8CIKrM8H12nyJ-85" value="&lt;div&gt;&amp;lt;&amp;lt;owl:ObjectProperty&amp;gt;&amp;gt; ns:objectProperty6&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="647" y="260" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="QsCOg0P8CIKrM8H12nyJ-86" value="" style="endArrow=diamondThin;html=1;fontColor=#000099;exitX=1.013;exitY=0.507;exitDx=0;exitDy=0;endFill=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endSize=11;arcSize=0;rounded=0;exitPerimeter=0;" edge="1" parent="1" source="QsCOg0P8CIKrM8H12nyJ-84" target="QsCOg0P8CIKrM8H12nyJ-85">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="307" y="308" as="sourcePoint" />
+            <mxPoint x="387" y="308" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

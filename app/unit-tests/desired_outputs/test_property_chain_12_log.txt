@@ -1,0 +1,8 @@
+
+Error Arrows: The end of the arrow is not connected to any shape, please check this.
+	shape_id: x2lojsMZcXaRY4SJAVnc-3
+	value: <<owl:propertyChainAxiom>>
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

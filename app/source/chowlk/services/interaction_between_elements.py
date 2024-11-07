@@ -21,6 +21,7 @@ def interaction_between_elements(diagram_model):
     rhombus_relations(diagram_model)
     #find_annotations_properties(diagram_model)
 
+
 # This function classify each of the boxes into a concept or an attribute.
 # An attribute is always underneath another box.
 # A concept can not be underneath another box.
@@ -263,6 +264,8 @@ def add_value_to_empty_arrows(diagram_model):
                 arrow["type"] = "rdfs:subClassOf"
             elif "endArrow=open" in style or "startArrow=open" in style:
                 arrow["type"] = "rdf:type"
+            elif "endArrow=diamondThin" in style:
+                arrow["type"] = "aggregation"
             else:
                 diagram_model.generate_error("Could not recognize type of arrow", arrow_id, None, "Arrows")
                 continue

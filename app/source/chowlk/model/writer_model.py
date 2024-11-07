@@ -272,7 +272,15 @@ class Writer_model():
                     triple = ','.join(relation['owl:propertyDisjointWith'])
                     self.file.write(" ;\n")
                     self.file.write("\t\towl:propertyDisjointWith " + triple)
+                
+                # Has the object property been defined as a property chain axiom?
+                if 'owl:propertyChainAxiom' in relation:
 
+                    for propertyChain in relation["owl:propertyChainAxiom"]:
+                        self.file.write(" ;\n")
+                        text = obtain_elements_property_chain(diagram_model, relations, propertyChain)
+                        self.file.write("\t\towl:propertyChainAxiom ( " + text + ")")
+                    
                 # Write label
                 self.file.write(" ;\n")
                 self.file.write("\t\trdfs:label \"" + relation["label"] + "\"")
