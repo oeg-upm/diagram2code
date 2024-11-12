@@ -82,6 +82,7 @@ class Diagram_model():
             "Restrictions": [],
             "Base": [],
             "Ontology": [],
+            "Deprecated": [],
         }
         self.ontology_uri = ''
     

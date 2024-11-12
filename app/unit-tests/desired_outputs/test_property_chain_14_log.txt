@@ -1,5 +1,5 @@
 
-Error Rhombuses: A path used to describe a property chain is not part of a correct property chain axiom
+Error Rhombuses: A path used to describe a property chain is not part of a correct property chain axiom. It lacks the owl:propertyChainAxiom arrow
 	shape_id: x2lojsMZcXaRY4SJAVnc-10
 
 Warning Base: A base has not been declared. The first namespace has been taken as base

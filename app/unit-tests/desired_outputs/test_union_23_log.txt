@@ -2,3 +2,15 @@
 Warning Base: A base has not been declared. The first namespace has been taken as base
 
 Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: w3AmSQhbdK0R-uA5Dv2a-4
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: w3AmSQhbdK0R-uA5Dv2a-5
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: xvZWHlGOSEGMGF3ixg9v-17
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: xvZWHlGOSEGMGF3ixg9v-18

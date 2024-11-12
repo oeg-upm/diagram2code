@@ -21,14 +21,14 @@ def check_property_aggregations(diagram_model):
     aggregations = []
     propertyChain = []
     arrows = diagram_model.get_arrows()
-    rhombuses = diagram_model.get_rhombuses()
 
     for arrow_id, arrow in arrows.items():
         arrow_type = arrow['type'] if 'type' in arrow else None
-        if arrow_type == 'aggregation':
+        target_id = arrow['target'] if 'target' in arrow else None
+        source_id = arrow['source'] if 'source' in arrow else None
+        if arrow_type == 'aggregation' and target_id in arrows and source_id in arrows:
             aggregations.append(arrow_id)
         elif arrow_type == 'owl:propertyChainAxiom':
-            target_id = arrow['target'] if 'target' in arrow else None
 
             if target_id in arrows:
                 aux(arrows[target_id], propertyChain, arrows)
@@ -36,7 +36,7 @@ def check_property_aggregations(diagram_model):
     for aggregation in aggregations:
 
         if aggregation not in propertyChain:
-            diagram_model.generate_error(f'A path used to describe a property chain is not part of a correct property chain axiom', aggregation, None, "Rhombuses")
+            diagram_model.generate_error(f'A path used to describe a property chain is not part of a correct property chain axiom. It lacks the owl:propertyChainAxiom arrow', aggregation, None, "Rhombuses")
 
 def aux(target, propertyChain, arrows):
     if "aggregation" in target:

@@ -7,12 +7,6 @@ Error Rhombuses: A property chain can not been defined between datatype properti
 	shape_id: x2lojsMZcXaRY4SJAVnc-5
 	value: ns:objectProperty2
 
-Error Rhombuses: A path used to describe a property chain is not part of a correct property chain axiom
-	shape_id: x2lojsMZcXaRY4SJAVnc-10
-
-Error Rhombuses: A path used to describe a property chain is not part of a correct property chain axiom
-	shape_id: QsCOg0P8CIKrM8H12nyJ-3
-
 Warning Base: A base has not been declared. The first namespace has been taken as base
 
 Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

@@ -254,6 +254,8 @@ def add_value_to_empty_arrows(diagram_model):
 
             # Is the source of the arrow an ellipse?
             if source in ellipses or source in hexagons:
+                if "endArrow=open" in style or "startArrow=open" in style:
+                    diagram_model.generate_warning("Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.", arrow_id, None, "Deprecated")
                 # This edge is part of a unionOf / intersectionOf / oneOf / owl:AllDifferent construct it is not useful beyond that construction
                 arrow["type"] = "ellipse_connection"
 

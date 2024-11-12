@@ -5,3 +5,21 @@ Error complementOf: There is an infinite loop in the diagram between anonymous c
 Warning Base: A base has not been declared. The first namespace has been taken as base
 
 Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-135
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-136
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-139
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-140
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-143
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: eAZQZ3EyDgebgoF4lQcs-144
