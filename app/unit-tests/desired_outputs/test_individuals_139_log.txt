@@ -1,0 +1,8 @@
+
+Error Relations: The domain of an object property is an individual
+	shape_id: cgOWGEoquNQR5SPTjaz2-42
+	value: ns:objectProperty2
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

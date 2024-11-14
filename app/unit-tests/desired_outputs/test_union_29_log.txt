@@ -1,0 +1,8 @@
+
+Error unionOf: A class is connected to a owl:unionOf through a rdf:type. A owl:unionOf can be connected to a class through a class axiom
+	shape_id: k_IdIqO4lfU_0r74XhhI-7
+	value: ns:Class1
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

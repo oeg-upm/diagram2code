@@ -1,0 +1,18 @@
+@prefix : <http://base.namespace.com/> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://other.namespace.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+ns:Class1 a owl:Class,
+        owl:DeprecatedClass ;
+    rdfs:label "Class1" ;
+    owl:equivalentClass ns:Class2 .
+
+ns:Class2 a owl:Class ;
+    rdfs:label "Class2" ;
+    owl:equivalentClass ns:Class1 .
+

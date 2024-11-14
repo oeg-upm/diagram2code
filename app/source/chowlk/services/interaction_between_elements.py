@@ -256,8 +256,13 @@ def add_value_to_empty_arrows(diagram_model):
             if source in ellipses or source in hexagons:
                 if "endArrow=open" in style or "startArrow=open" in style:
                     diagram_model.generate_warning("Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.", arrow_id, None, "Deprecated")
-                # This edge is part of a unionOf / intersectionOf / oneOf / owl:AllDifferent construct it is not useful beyond that construction
-                arrow["type"] = "ellipse_connection"
+                    # This edge is part of a unionOf / intersectionOf / oneOf / owl:AllDifferent construct it is not useful beyond that construction
+                    arrow["type"] = "ellipse_connection"
+                elif "endArrow=diamondThin" in style or "startArrow=diamondThin" in style:
+                    arrow["type"] = "ellipse_connection"
+                else:
+                    diagram_model.generate_error("Wrong notation. An arrow whose source is an ellipse or an hexagon must be an aggregation arrow", arrow_id, None, "Arrows")
+                    continue
 
             # If after the evaluation of free text we cannot find any related text to the edge
             # we can say for sure that it is a "subclass" or "type" relationship

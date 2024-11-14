@@ -1,0 +1,11 @@
+
+Error Arrows: The end of of a nameless arrow is not connected to any shape, please check this.
+	shape_id: y5eGiCf7tn258ciDLBGX-20
+
+Error Hexagons: An arrow of an owl:AllDisjointProperties is not connected to any shape, please check this
+	shape_id: y5eGiCf7tn258ciDLBGX-18
+
+Error Hexagons: At least three properties must be involved in an owl:AllDisjointProperties axiom. If only two properties are involved, owl:propertyDisjointWith should be used
+	shape_id: y5eGiCf7tn258ciDLBGX-18
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

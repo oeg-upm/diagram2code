@@ -1,0 +1,15 @@
+@prefix : <http://base.namespace.com/> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://other.namespace.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+ns:objectProperty1 a owl:ObjectProperty ;
+    rdfs:label "object property1" .
+
+ns:objectProperty2 a owl:ObjectProperty ;
+    rdfs:label "object property2" .
+
