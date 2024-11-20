@@ -72,7 +72,7 @@ class Diagram_model():
             "complementOf": [],
             "unionOf": [],
             "Relations": [],
-            "equivalentClass": [],
+            #"equivalentClass": [],
             "Annotation Properties": [],
             "Base": [],
         }

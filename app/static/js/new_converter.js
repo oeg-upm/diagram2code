@@ -1,20 +1,41 @@
+// The service box
 const dragDropArea = document.getElementById('drag-drop-area');
+// The file that a user is going to drop/select in the service box
 const input = dragDropArea.querySelector('#fileElem');
+// The text displayed inside the service box before the ttl has been generated (name of the file selected or instructions for the user)
 const inputName = dragDropArea.querySelector('#drag-text');
+// Submit button
 const submitButton = document.getElementById('submit');
+// Download button
 const downloadButton = document.getElementById('download');
+// The text displayed inside the service box after the ttl has been generated
+const responseText = document.getElementById('response');
 
 //Button to download an xml file which helps users to detect the errors in their diagrams
 const downloadButtonXmlErrorFile = document.getElementById('download-xml-errors');
 
-
-const responseText = document.getElementById('response');
+// Error/warning sections
 const errorReport = document.getElementById('error-report');
 const warningReport = document.getElementById('warning-report');
 
 //Warning accordions
+const baseItem = document.getElementById('base-item');
+const baseBody = document.getElementById('base-body');
+
+const ontologyUriItem = document.getElementById('ontology-uri-item');
+const ontologyUriBody = document.getElementById('ontology-uri-body');
+
 const restrictionsWItem = document.getElementById('restrictions-w-item');
 const restrictionsWBody = document.getElementById('restrictions-w-body');
+
+const deprecatedItem = document.getElementById('deprecated-item');
+const deprecatedBody = document.getElementById('deprecated-body');
+
+//Special error accordions
+const xmlErrors = document.getElementById('xml-errors');
+
+const newNamespaces = document.getElementById('new-namespaces');
+const textNamespace = document.getElementById('textNamespaces');
 
 //Error accordions
 const conceptsItem = document.getElementById('concepts-item');
@@ -62,22 +83,19 @@ const unionOfBody = document.getElementById('unionOf-body');
 const relationItem = document.getElementById('relation-item');
 const relationBody = document.getElementById('relation-body');
 
+const annotationPropertyItem = document.getElementById('annotation-property-item');
+const annotationPropertyBody = document.getElementById('annotation-property-body');
+
+const baseErrorItem = document.getElementById('base-error-item');
+const baseErrorBody = document.getElementById('base-error-body');
+
 const syntaxItem = document.getElementById('syntax-item');
 const syntaxBody = document.getElementById('syntax-body');
-
-const baseItem = document.getElementById('base-item');
-const baseBody = document.getElementById('base-body');
-
-const ontologyUriItem = document.getElementById('ontology-uri-item');
-const ontologyUriBody = document.getElementById('ontology-uri-body');
 
 const serverErrorItem = document.getElementById('server-error-item');
 const serverErrorBody = document.getElementById('server-error-body');
 
-const newNamespaces = document.getElementById('new-namespaces');
-const textNamespace = document.getElementById('textNamespaces');
 
-const xmlErrors = document.getElementById('xml-errors');
 
 let response;
 let file;
@@ -191,22 +209,28 @@ submitButton.addEventListener('click', (e) => {
     }
 });
 
+// Function to make the HTTP Post request to the Chowlk API
 function transformDiagram(file){
     loadTransformedDiagram = false;
     //const uri = 'https://chowlk.linkeddata.es/api';
     const uri = 'http://localhost:5000/api';
+    // Create an HTTP request
     const xhr = new XMLHttpRequest();
+    // Specify how the data is going to be sent in the request
     const fd = new FormData();
+    // Set the type of the request (Post)
     xhr.open('POST', uri);
+    // When the response is received the following function is going to be executed
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
             //Diagram transformed
             response = JSON.parse(xhr.responseText);
             
-            xmlErrors.style.display = 'none';
-            newNamespaces.style.display = 'none';
             errorReport.style.display = 'none';
             warningReport.style.display = 'none';
+            xmlErrors.style.display = 'none';
+            newNamespaces.style.display = 'none';
+            
             inputName.style.display = 'none';
             responseText.style.display = 'block';
             responseText.innerText = response['ttl_data'];
@@ -225,10 +249,12 @@ function transformDiagram(file){
                 baseBody.innerHTML = '';
                 ontologyUriBody.innerHTML = '';
                 restrictionsWBody.innerHTML = '';
+                deprecatedBody.innerHTML = '';
                 
                 baseItem.style.display = 'none';
                 ontologyUriItem.style.displey = 'none';
                 restrictionsWItem.style.display = 'none';
+                deprecatedItem.style.display = 'none';
 
                 warnings_keys.forEach((key) => classifyWarning(key, response['warnings'][key]));
             }
@@ -255,6 +281,8 @@ function transformDiagram(file){
                 complementOfBody.innerHTML = '';
                 unionOfBody.innerHTML = '';
                 relationBody.innerHTML = '';
+                annotationPropertyBody.innerHTML = '';
+                baseErrorBody.innerHTML = '';
                 syntaxBody.innerHTML = '';
                 serverErrorBody.innerHTML = '';
 
@@ -273,6 +301,8 @@ function transformDiagram(file){
                 complementOfItem.style.display = 'none';
                 unionOfItem.style.display = 'none';
                 relationItem.style.display = 'none';
+                annotationPropertyItem.style.display = 'none';
+                baseErrorItem.style.display = 'none';
                 syntaxItem.style.display = 'none';
                 serverErrorItem.style.display = 'none';
                 
@@ -299,23 +329,29 @@ function transformDiagram(file){
             }
         }    
     }
+    // Append the file (diagram)
     fd.append('data', file);
+    // Send the HTTP Post request
     xhr.send(fd);
 }
 
+// Function to display the warning text in their relevant accordion
 function classifyWarning(key, value){
-
-    if (key == 'Restrictions'){
-        showError(restrictionsWItem, restrictionsWBody, value);
-    }
-    else if (key == 'Base'){
+    if (key == 'Base'){
         showError(baseItem, baseBody, value);
     }
     else if (key == 'Ontology'){
         showError(ontologyUriItem, ontologyUriBody, value);
     }
+    else if (key == 'Restrictions'){
+        showError(restrictionsWItem, restrictionsWBody, value);
+    }
+    else if (key == 'Deprecated'){
+        showError(deprecatedItem, deprecatedBody, value);
+    }
 }
 
+// Function to display the error text in their relevant accordion
 function classifyError(key, value){
     switch(key){
         case 'Concepts':
@@ -362,6 +398,12 @@ function classifyError(key, value){
             break;
         case 'Relations':
             showError(relationItem, relationBody, value);
+            break;
+        case 'Annotation Properties':
+            showError(annotationPropertyItem, annotationPropertyBody, value);
+            break;
+        case 'Base':
+            showError(baseErrorItem, baseErrorBody, value);
             break;
         case 'Syntax':
             showSimpleError(syntaxItem, syntaxBody, value);
