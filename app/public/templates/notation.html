@@ -88,8 +88,8 @@
                     <p class="ps-4"><a href="#equivalent-property-object-property">2.9.2. Equivalent Property</a></p>
                     <p class="ps-4"><a href="#inverse-property-object-property">2.9.3. Inverse Property</a></p>
                     <p class="ps-4"><a href="#disjoint-property-object-property">2.9.4. Disjoint Property</a></p>
-                    <p class="ps-4"><a href="#all-disjoint-property-object-properties">2.9.5. All Disjoint
-                            Properties</a></p>
+                    <p class="ps-4"><a href="#all-disjoint-property-object-properties">2.9.5. All Disjoint Properties</a></p>
+                    <p class="ps-4"><a href="#property-chain">2.9.6. Property Chain</a></p>
                     <p class="ps-2"><a href="#relations-between-properties-datatype-properties">2.10. Relations between
                             Datatype Properties</a></p>
                     <p class="ps-4"><a href="#sub-property-datatype-property">2.10.1. Sub-Property</a></p>
@@ -178,6 +178,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="about">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="versionHistory">Version History</a>
                                 </li>
                             </ul>
                             <a href="https://github.com/oeg-upm/Chowlk" target="_blank"><i
@@ -352,12 +355,16 @@
                             <tr>
                                 <td class="text-center" scope="row"><img src="static/images/type_arrow.svg" alt="type">
                                 </td>
-                                <td>Special arrow to represent several relationships between elements of this
-                                    specification.
-                                    It can be used to indicate <code>rdf:type</code> relationships, or to connect a
-                                    <code>owl:unionOf</code> axiom with all
-                                    the concepts it is composed of.</th>
+                                <td>Special arrow to represent <code>rdf:type</code> relationships.</td>
                                 <td><code>rdf:type</code></td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-center" scope="row"><img src="static/images/aggregation_arrow.svg" alt="aggregation">
+                                </td>
+                                <td>Special arrow to represent the elements involved in a list. For example, 
+                                    it connects a owl:unionOf axiom with all the concepts it is composed of.</td>
+                                <td></td>
                             </tr>
 
                             <tr>
@@ -2204,6 +2211,7 @@
                             <tr>
                                 <td class="text-center row-height" scope="row">
                                     <p class="alt-tag">Alternative</p>
+                                    <p> <br> </p>
                                     <img src="static/images/restriction_equivalent2.svg" alt="equivalent">
                                 </td>
                             </tr>
@@ -3570,6 +3578,34 @@
                         </tbody>
                     </table>
 
+                    <h5 id="property-chain" class="pt-3">2.9.6. Property Chain</h5>
+
+                    <table class="table table-bordered align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 55%;">Notation Example</th>
+                                <th scope="col" style="width: 45%;">OWL Code</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="text-center" scope="row">
+                                    <img src="static/images/property_chain.svg" alt="property chain">
+                                </td>
+                                <td><code>ns:objectProperty1 a owl:ObjectProperty ;<br>
+                                    owl:propertyChainAxiom ( ns:objectProperty2 ns:objectProperty3 ns:objectProperty4 ) .<br>
+                                    <br>
+                                    ns:objectProperty2 a owl:ObjectProperty .<br>
+                                    <br>
+                                    ns:objectProperty3 a owl:ObjectProperty .<br>
+                                    <br>
+                                    ns:objectProperty4 a owl:ObjectProperty .</code></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
 
                     <h5 id="relations-between-properties-datatype-properties" class="pt-3">2.10. Relations between
                         Datatype Properties</h5>
@@ -3720,7 +3756,7 @@
                         </tbody>
                     </table>
                     
-                    <p class="pt-3">In addition, the following shortcut is allowed when it is intented to represent that several individuals belongs to the same class.</p>
+                    <p id="individual-declaration-shortcut-1" class="pt-3">In addition, the following shortcut is allowed when it is intented to represent that several individuals belongs to the same class.</p>
 
                     <table class="table table-bordered align-middle">
                         <thead>
@@ -3750,7 +3786,7 @@
                         </tbody>
                     </table>
 
-                    <p class="pt-3">Moreover, the following shortcut is allowed when it is intented to represent that an individual belongs to several classes.</p>
+                    <p id="individual-declaration-shortcut-2" class="pt-3">Moreover, the following shortcut is allowed when it is intented to represent that an individual belongs to several classes.</p>
 
                     <table class="table table-bordered align-middle">
                         <thead>
@@ -4590,7 +4626,7 @@
                                     owl:subClassOf [ a owl:Restriction ;<br>
                                     owl:onProperty ns:objectProperty ;<br>
                                     owl:allValuesFrom [ a owl:Class ;<br>
-                                    owl:intersectionOf ( ns:Class2 ns:Class3 ) ] ) ] .<br>
+                                    owl:intersectionOf ( ns:Class2 ns:Class3 ) ] ] .<br>
                                     <br>
                                     ns:Class2 a owl:Class .<br>
                                     <br>
@@ -4626,7 +4662,7 @@
                                     owl:subClassOf [ a owl:Restriction ;<br>
                                     owl:onProperty ns:objectProperty ;<br>
                                     owl:allValuesFrom [ a owl:Class ;<br>
-                                    owl:unionOf ( ns:Class2 ns:Class3 ) ] ) ] .<br>
+                                    owl:unionOf ( ns:Class2 ns:Class3 ) ] ] .<br>
                                     <br>
                                     ns:Class2 a owl:Class .<br>
                                     <br>

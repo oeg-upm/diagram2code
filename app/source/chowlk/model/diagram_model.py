@@ -72,9 +72,12 @@ class Diagram_model():
             "complementOf": [],
             "unionOf": [],
             "Relations": [],
-            #"equivalentClass": [],
+            "equivalentClass": [],
             "Annotation Properties": [],
             "Base": [],
+            # Additional errors which are created if neccesary
+            # "Syntax" created in transformations.py
+            # "Server Error" created in routes.py
         }
 
         # This attribute stores the categories of possible warnings that a user can make

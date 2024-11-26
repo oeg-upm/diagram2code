@@ -83,6 +83,9 @@ const unionOfBody = document.getElementById('unionOf-body');
 const relationItem = document.getElementById('relation-item');
 const relationBody = document.getElementById('relation-body');
 
+const equivalentItem = document.getElementById('equivalent-item');
+const equivalentBody = document.getElementById('equivalent-body');
+
 const annotationPropertyItem = document.getElementById('annotation-property-item');
 const annotationPropertyBody = document.getElementById('annotation-property-body');
 
@@ -142,6 +145,8 @@ dragDropArea.addEventListener('mouseover', ()=>{
 //Click event handler
 //If the user click on the box => the user can select a local file to upload
 dragDropArea.addEventListener('click', (e)=>{
+    // Erase the file path in order to trigger the change event when selecting a file with the same path
+    input.value = null;
     input.click();
 });
 
@@ -281,6 +286,7 @@ function transformDiagram(file){
                 complementOfBody.innerHTML = '';
                 unionOfBody.innerHTML = '';
                 relationBody.innerHTML = '';
+                equivalentBody.innerHTML = '';
                 annotationPropertyBody.innerHTML = '';
                 baseErrorBody.innerHTML = '';
                 syntaxBody.innerHTML = '';
@@ -301,6 +307,7 @@ function transformDiagram(file){
                 complementOfItem.style.display = 'none';
                 unionOfItem.style.display = 'none';
                 relationItem.style.display = 'none';
+                equivalentItem.style.display = 'none';
                 annotationPropertyItem.style.display = 'none';
                 baseErrorItem.style.display = 'none';
                 syntaxItem.style.display = 'none';
@@ -398,6 +405,9 @@ function classifyError(key, value){
             break;
         case 'Relations':
             showError(relationItem, relationBody, value);
+            break;
+        case 'equivalentClass':
+            showError(equivalentItem, equivalentBody, value);
             break;
         case 'Annotation Properties':
             showError(annotationPropertyItem, annotationPropertyBody, value);

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="static/images/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="static/css/new_style.css">
+
+    <title>Chowlk | Version History</title>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light py-3 text-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index">
+                    <img id="logo" src="static/images/logos/logo.png" alt="Chowlk logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto fw-bold mx-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index">Converter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="notation">Notation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="examples">Examples</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Version History</a>
+                        </li>
+                    </ul>
+                    <a href="https://github.com/oeg-upm/Chowlk" target="_blank"><i
+                            class="bi bi-github h4 text-dark"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--Showcase-->
+    <section class="showcase pt-5 px-5 text-light">
+        <div class="container">
+            <h1 id="title" class="pt-4 pb-2"> Chowlk Version History</h1>
+            <p class="lead pb-3">This page records the changes made to the notation.</p>
+            <div class="py-1">
+                <p class="fw-bold mb-1">Contact:</p>
+                <p>María Poveda-Villalón <br>
+                    Contact email: chowlk@delicias.dia.fi.upm.es</p>
+            </div>
+            <div class="py-1">
+                <p class="fw-bold mb-1">Authors:</p>
+                <p class="px-3 secondary-text">
+                    <a class="link" href="https://thepetiteontologist.wordpress.com/" target="_blank">
+                        María Poveda-Villalón
+                    </a>
+                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a
+                        class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de
+                        Madrid)</a><br>
+
+                    <a class="link" href="http://www.garcia-castro.com/" target="_blank">
+                        Raúl García-Castro
+                    </a>
+                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a
+                        class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de
+                        Madrid)</a><br>
+
+                    <a class="link" href="https://www.linkedin.com/in/sergio-mario-carulli-p%C3%A9rez-7632b5217/"
+                        target="_blank">
+                        Sergio-Mario Carulli-Pérez
+                    </a>
+                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a
+                        class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de
+                        Madrid)</a><br>
+
+                    <a class="link" href="https://www.linkedin.com/in/serge-chavez-feria/" target="_blank">
+                        Serge Chávez-Feria
+                    </a>
+                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a
+                        class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de Madrid)</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--Changes to notation-->
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>25/11/2024</h4>
+            <ul>
+                <li>Added property chain axiom. <a href="notation#property-chain">See in notation</a></li>
+                <li>Deprecated the rdf:type arrow to connect element to an ellipse or an hexagon. In this cases, it is neccesary to use the aggregation arrow.</li>
+                <!--<li>Now is possible to declare a datatype property restriction without declaring a range for that datatype property. <a href="">See in notation</a></li>
+                -->
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>19/07/2024</h4>
+            <ul>
+                <li>Added a shortcut to represent that several individuals belongs to the same class. <a href="notation#individual-declaration-shortcut-1">See in notation</a></li>
+                <li>Added a shortcut to represent that an individual belongs to several classes. <a href="notation#individual-declaration-shortcut-2">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>03/06/2024</h4>
+            <ul>
+                <li>Added anonymous individuals. See example below:</li>
+                <img src="static/images/example-anonymous-individual.svg" alt="anonymous individuals example">
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>30/04/2024</h4>
+            <ul>
+                <li>Added all disjoint properties axiom between object properties. <a href="notation#all-disjoint-property-object-properties">See in notation</a></li>
+                <li>Added all disjoint properties axiom between datatype properties. <a href="notation#all-disjoint-property-datatype-properties">See in notation</a></li>
+                <li>Added reflexive properties. <a href="notation#object-properties-reflexive-properties">See in notation</a></li>
+                <li>Added asymmetric property. <a href="notation#object-properties-asymmetric-properties">See in notation</a></li>
+                <li>Added irreflexive property. <a href="notation#object-properties-irreflexive-properties">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>22/03/2024</h4>
+            <ul>
+                <li>Added deprecated classes. <a href="notation#deprecated-annotations">See in notation</a></li>
+                <li>Added deprecated object properties. <a href="notation#deprecated-annotations">See in notation</a></li>
+                <li>Added deprecated dataytpe properties. <a href="notation#deprecated-annotations">See in notation</a></li>
+                <li>Added declaration of enumerated datatypes through boxes. <a href="notation#datatype-properties-enumerated-datatype">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>01/03/2024</h4>
+            <ul>
+                <li>Added qualified object properties restriction. <a href="notation#restriction-qualified-cardinality-constraint-identifier">See in notation</a></li>
+                <li>Added qualified dataype properties restriction. <a href="notation#restriction-qualified-cardinality-constraint-identifier">See in notation</a></li>
+                <li>Added new notation to allow the concatenation of datatype property restrictions. <a href="notation#concatenation-class-restrictions">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>27/09/2023</h4>
+            <ul>
+                <li>Added annotation property declaration. <a href="notation#annotation-properties">See in notation</a></li>
+                <li>Added annotations in classes. <a href="notation#class-annotations">See in notation</a></li>
+                <li>Added annotations in object properties. <a href="notation#object-property-annotations">See in notation</a></li>
+                <li>Added annotations in datatype properties. <a href="notation#datatype-property-annotations">See in notation</a></li>
+                <li>Added annotations in individuals. <a href="notation#individual-annotations">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>20/09/2023</h4>
+            <ul>
+                <li>Allow using IRIs (instead of namespaces) to declare a class. See example below:</li>
+                <img src="static/images/class-iri-example.svg" alt="example of a declaration of a class using an IRI">
+                <li>Allow using IRIs (instead of namespaces) to declare an object property. See example below:</li>
+                <img src="static/images/example-object-property.svg" alt="example of a declaration of an object property using an IRI">
+                <li>Allow using IRIs (instead of namespaces) to declare a datatype property. See example below:</li>
+                <img src="static/images/example-datatype-property.svg" alt="example of a declaration of a datatype property using an IRI">
+                <li>Allow using IRIs (instead of namespaces) to declare an individual. See example below:</li>
+                <img src="static/images/individual-iri-example.svg" alt="example of a declaration of an individual using an IRI">
+                <li>Allow using IRIs (instead of namespaces) to declare a datatype. See example below:</li>
+                <img src="static/images/example-datatype-iri.svg" alt="example of a declaration of a datatype using an IRI">
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>14/09/2023</h4>
+            <ul>
+                <li>Added new notation to declare the ontology uri. <a href="notation#ontology_metadata">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>25/05/2023</h4>
+            <ul>
+                <li>Added disjoint property between object properties. <a href="notation#disjoint-property-object-property">See in notation</a></li>
+                <li>Added disjoint property between datatype properties. <a href="notation#disjoint-property-datatype-property">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>13/01/2023</h4>
+            <ul>
+                <li>Generate xml file with the errors highlight in red in the diagram.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>16/01/2023</h4>
+            <ul>
+                <li>Allow declaring anonymous classes as domain of object properties. <a href="notation#anonymous-classes-domain-object-properties">See in notation</a></li>
+                <li>Allow declaring anonymous classes as range of object properties. <a href="notation#anonymous-classes-range-object-properties">See in notation</a></li>
+                <li>Allow declaring anonymous classes as domain of datatype properties. <a href="notation#anonymous-classes-domain-datatype-properties">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>21/10/2022</h4>
+            <ul>
+                <li>Added has value constraint. <a href="notation#restriction-value-constraint-identifier">See in notation</a></li>
+                <li>Added enumeration of classes. <a href="notation#enumeration-identifier">See in notation</a></li>
+                <li>Added enumeration of datatypes. <a href="notation#datatype-properties-enumerated-datatype">See in notation</a></li>
+                <li>Change notation for representing complement classes. <a href="notation#complement-identifier">See in notation</a></li>
+                <li>Allow using anonymous classes in class axioms. <a href="notation#class-axioms">See in notation</a></li>
+                <li>Allow concatenation between class descriptions. <a href="notation#concatenation-class-restrictions">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="pt-5 px-5">
+        <div class="container">
+            <h4>10/10/2022</h4>
+            <ul>
+                <li>Added base directive. <a href="notation#namespaces">See in notation</a></li>
+            </ul>
+        </div>
+    </section>
+
+</body>
