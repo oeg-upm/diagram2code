@@ -11,7 +11,7 @@ rhombus_valid_types = ["owl:ObjectProperty", "owl:DatatypeProperty", "owl:Functi
 # these are special types that can be defined in an arrow
 edge_types = ["rdfs:subClassOf", "rdf:type", "owl:equivalentClass", "owl:disjointWith", "owl:complementOf",
                         "rdfs:subPropertyOf", "owl:equivalentProperty", "owl:inverseOf", "rdfs:domain", "rdfs:range",
-                        "owl:sameAs", "owl:differentFrom", "owl:propertyDisjointWith"]
+                        "owl:sameAs", "owl:differentFrom", "owl:propertyDisjointWith", "owl:propertyChainAxiom"]
 
 class Diagram_model():
 
@@ -75,6 +75,9 @@ class Diagram_model():
             "equivalentClass": [],
             "Annotation Properties": [],
             "Base": [],
+            # Additional errors which are created if neccesary
+            # "Syntax" created in transformations.py
+            # "Server Error" created in routes.py
         }
 
         # This attribute stores the categories of possible warnings that a user can make
@@ -82,6 +85,7 @@ class Diagram_model():
             "Restrictions": [],
             "Base": [],
             "Ontology": [],
+            "Deprecated": [],
         }
         self.ontology_uri = ''
     
@@ -1115,7 +1119,6 @@ class Diagram_model():
     # 7) The uri of the name defined in the arrow
     # 8) An auto generated label
     def add_value_to_arrow(self, relation, html_value, style, id):
-
         value = clean_html_tags(html_value)
 
         # Has the arrow a source element from which it departs?
@@ -1200,7 +1203,13 @@ class Diagram_model():
         # Obtain the prefix and suffix defined in the arrrow name
         try:
             uri = clean_uri(value)
-            uri = uri.split("|")[-1].strip().split(">>")[-1].strip()
+
+            #uri = uri.split("|")[-1].strip().split(">>")[-1].strip()
+            uri = uri.split("|")[-1].strip()
+
+            if ">>" in uri:
+                self.generate_error("Problems in the text of the arrow", id, value, "Arrows")
+                return
 
             relation["prefix"], relation["uri"] = parse_prefix_uri(uri)
 
@@ -1208,7 +1217,7 @@ class Diagram_model():
             if not relation["prefix"] and not relation["uri"]:
                 self.generate_error("The relation URI has not a valid identifier", id, value, "Arrows")
                 return
-            
+
             relation["label"] = create_label(relation["prefix"], relation["uri"], "property")
 
         except:

@@ -1,0 +1,21 @@
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://base.namespace.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ns: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+<http://base.namespace.com#Class1> a owl:Class ;
+    rdfs:label "Class1" ;
+    owl:disjointWith [ a owl:Restriction ;
+            owl:allValuesFrom <http://base.namespace.com#Class2> ;
+            owl:onProperty <http://base.namespace.com#objectProperty> ] .
+
+<http://base.namespace.com#objectProperty> a owl:ObjectProperty ;
+    rdfs:label "object property" ;
+    rdfs:range <http://base.namespace.com#Class2> .
+
+<http://base.namespace.com#Class2> a owl:Class ;
+    rdfs:label "Class2" .
+

@@ -1,0 +1,13 @@
+
+Error Arrows: The end of of a nameless arrow is not connected to any shape, please check this.
+	shape_id: s5nHudK6md__wQg48wZb-5
+
+Error equivalentClass: An arrow of an owl:equivalentClass is not connected to any shape, please check this
+	shape_id: s5nHudK6md__wQg48wZb-1
+
+Error equivalentClass: An owl:equivalentClass is connected to less than two shapes. An owl:equivalentClass needs at least two class axioms
+	shape_id: s5nHudK6md__wQg48wZb-1
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

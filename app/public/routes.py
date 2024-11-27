@@ -39,6 +39,11 @@ def examples():
 def about():
     return render_template("about.html")
 
+# Load version history web page
+@public_bp.route("/versionHistory")
+def versionHistory():
+    return render_template("versionHistory.html")
+
 # Load secondary web pages
 @public_bp.route("/<path:path>")
 def send_static(path):

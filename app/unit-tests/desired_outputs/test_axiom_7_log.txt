@@ -3,3 +3,6 @@ Error Hexagons: An owl:AllDifferent hexagon is connected to less than two elemen
 	shape_id: 8wC4p2Fh7XucXnuYY3cu-4
 
 Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri
+
+Warning Deprecated: Deprecated notation. Now the aggregation arrow should be used instead of the rdf:type arrow, but the triple has been generated anyway.
+	shape_id: 8wC4p2Fh7XucXnuYY3cu-7

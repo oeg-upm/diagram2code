@@ -1,1 +1,25 @@
-<mxfile host="app.diagrams.net" modified="2022-12-05T13:13:33.574Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="OvNbh5rWKeudj93Ff_WO" version="20.6.0" type="device"><diagram id="sK1u07X4MsrWeATdHeni" name="Página-1">tVfbbuMgEP0aP9YydkjixyRtd6W9tKvupX1aEZvEqLaxMLnt1+9gQ2xImqRVG0UJ5xgGZuYMYC+aFdtPglTZN57S3AuDdOtF114YjkMMv4rYtcQgiltiKVjaUqgjHtg/qslAsyuW0trqKDnPJatsMuFlSRNpcUQIvrG7LXhuz1qRJT0gHhKSH7J/WCoz49ao4z9TtszMzGio/SuI6aw9qTOS8k2Pim68aCY4l22r2M5ormJn4tKOu33h6X5hgpbykgFzPJx/3/7dPP7ejca/Arn9UX+5GrdW1iRfaYe9cJiDvWnK1tBcqqah5oYoa0PBdHvWiyZgKpOyalq36hmpqV+SgtYVSaif8MILo95Ya5ImSHJnIg/xqlSz5BL+ppuMSfqgzAC3Aa0Bl8kiB4TU2kjyvBR8VaZ3K5mzkmo+JeL5DkYxqQQY+AHez7WmQtLti9FE+xyBtikvqBQ76GIGYJ1WrWtk0rzpVBLGmsv6Cgk0SbQyl3vbXfKgofP3ilyi4YXJJIUKXn6I+AYmnFwTSeSuoveCVxCi3b6PPV6jAMQQTdLDMa1khCuiM1kXGS/mq/p8wt8hh5ALP+h9YiujIY79uP85yC8aH8nvCH9UekcH6bVCfxhKVQ1UmQzOh7MuSfWT33PWhE4xlWo3TuApfAMfgjkLPAymZw0OHRw5eOBg7OChg0cOHjs4trFCsCYbRw7GDh45OO7ZV/4hxz/k+Icc/5DjH3L8Q45/yPEPOf51GDn+Icc/5PiHHP9Q5x9836VeosGpeomGg3P1Eh6pl+jDtsP4yHbolAgt04m6JACCfau0S2LBSznjORdN36jxOAYeBt0ytZamrlJSZ02RoeYRrPyxOWiwgU+6YwOutxba7ZG5+owBEZFo1DzbMvlo7EP7qdfuzClgrNmF3zpNU+eeU/OVSOgFx4kkYknlBRvTBULqiQEf0YLhBM2JZGt7wccEomdot62eTvEpnSJ8TKfGfBsXbbF/nXImQXjgR/FLkwwGjqzbKB6YbZS9D9DbxW4q6+1nv0gX6jQRpAShnDzxLzrHld6+kjm8DFg1RXK2hDK7TkApFAprqjYkBtftiX5QsDRVNqaC1uwfmeemDOzj6OSOpt8F9ODuBt4X6Ikt48X97wr2X2xeaHSir9C7SHbkj0PLLvbx0DbCF4uavlI8ALsXjLZ795YW3fwH</diagram></mxfile>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.4">
+  <diagram id="sK1u07X4MsrWeATdHeni" name="Página-1">
+    <mxGraphModel dx="2074" dy="1132" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b56bNx_wXVy78U0txQsK-8" value="&lt;div&gt;&lt;b&gt;ns&lt;/b&gt;: http://base.namespace.com#&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
+          <mxGeometry x="150" y="120" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="b56bNx_wXVy78U0txQsK-16" value="&lt;div&gt;&amp;lt;&amp;lt;owl:DatatypeProperty&amp;gt;&amp;gt; ns:datatypeProperty&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="210.0000000000009" y="259.9999999999999" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="b56bNx_wXVy78U0txQsK-17" value="ns:datatype" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];" parent="1" vertex="1">
+          <mxGeometry x="340.0000000000009" y="364.9999999999999" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b56bNx_wXVy78U0txQsK-19" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=8;arcSize=0;exitX=1;exitY=1;exitDx=0;exitDy=0;rounded=0;" parent="1" source="b56bNx_wXVy78U0txQsK-16" target="b56bNx_wXVy78U0txQsK-17" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="345.0000000000009" y="315.9999999999999" as="sourcePoint" />
+            <mxPoint x="154.3900000000009" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

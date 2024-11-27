@@ -6,7 +6,9 @@
 ns: a owl:Ontology ;
     mod:createdWith <https://chowlk.linkeddata.es/> .
 
+ns:datatype a owl:Class ;
+    rdfs:label "datatype" .
+
 ns:datatypeProperty a owl:DatatypeProperty ;
-    rdfs:label "datatype property" ;
-    rdfs:range ns:datatype .
+    rdfs:label "datatype property" .
 

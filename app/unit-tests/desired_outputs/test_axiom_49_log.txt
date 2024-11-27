@@ -1,0 +1,6 @@
+
+Error Hexagons: An element of an owl:AllDisjointProperties axiom is not an object or datatype property
+	shape_id: 5ltwtWKie9tUYiSgxbXD-16
+	value: ns:functionalProperty1
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

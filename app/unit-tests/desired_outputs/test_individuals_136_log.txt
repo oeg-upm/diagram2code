@@ -1,0 +1,8 @@
+
+Error Relations: The range of an object property is not a class description
+	shape_id: cgOWGEoquNQR5SPTjaz2-36
+	value: ns:datatypeProperty
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

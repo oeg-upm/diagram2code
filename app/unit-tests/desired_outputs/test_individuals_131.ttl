@@ -1,0 +1,15 @@
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://base.namespace.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ns: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+ns:Individual1 a owl:NamedIndividual .
+
+ns:Individual2 a owl:NamedIndividual .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( ns:Individual2 ns:Individual1 ) .
+

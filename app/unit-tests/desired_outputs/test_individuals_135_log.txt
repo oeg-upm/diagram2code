@@ -1,0 +1,13 @@
+
+Error Arrows: The end of of a nameless arrow is not connected to any shape, please check this.
+	shape_id: iGlHEbySF0fFS9c-5EI5-46
+
+Error Hexagons: An arrow of an owl:AllDifferent is not connected to any shape, please check this
+	shape_id: iGlHEbySF0fFS9c-5EI5-43
+
+Error Hexagons: An owl:AllDifferent hexagon is connected to less than two elements. An owl:AllDifferent needs at least two individuals
+	shape_id: iGlHEbySF0fFS9c-5EI5-43
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

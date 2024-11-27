@@ -1,0 +1,41 @@
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://base.namespace.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+ns:datatypeProperty1 a owl:DatatypeProperty ;
+    rdfs:label "datatype property1" ;
+    rdfs:range xsd:datatype .
+
+ns:datatypeProperty2 a owl:DatatypeProperty ;
+    rdfs:label "datatype property2" ;
+    rdfs:range xsd:datatype .
+
+ns:datatypeProperty3 a owl:DatatypeProperty ;
+    rdfs:label "datatype property3" ;
+    rdfs:range xsd:datatype .
+
+ns:datatypeProperty4 a owl:DatatypeProperty ;
+    rdfs:label "datatype property4" ;
+    rdfs:range xsd:datatype .
+
+ns:datatypeProperty5 a owl:DatatypeProperty ;
+    rdfs:label "datatype property5" ;
+    rdfs:range xsd:datatype .
+
+ns:datatypeProperty6 a owl:DatatypeProperty ;
+    rdfs:label "datatype property6" ;
+    rdfs:range xsd:datatype .
+
+ns:Class1 a owl:Class ;
+    rdfs:label "Class1" ;
+    owl:equivalentClass ns:Class2 .
+
+ns:Class2 a owl:Class ;
+    rdfs:label "Class2" ;
+    owl:equivalentClass ns:Class1 .
+

@@ -1,0 +1,5 @@
+
+Error Hexagons: There are datatype and object properties involved in an owl:AllDisjointProperties axiom at the same time
+	shape_id: zkMDWy4ux83Zzl1Ba76p-14
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

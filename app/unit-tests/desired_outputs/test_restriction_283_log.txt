@@ -1,0 +1,7 @@
+
+Error unionOf: There is an infinite loop in the diagram between anonymous classes
+	shape_id: eAZQZ3EyDgebgoF4lQcs-47
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri

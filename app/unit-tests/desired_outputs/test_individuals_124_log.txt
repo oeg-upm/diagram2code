@@ -1,0 +1,7 @@
+
+Error Individual: There is an infinite loop in the diagram between anonymous individuals, involving an owl:oneOf hexagon.
+	shape_id: cgOWGEoquNQR5SPTjaz2-39
+
+Warning Base: A base has not been declared. The first namespace has been taken as base
+
+Warning Ontology: An ontology uri has not been declared. The base uri has been taken as the ontology uri
