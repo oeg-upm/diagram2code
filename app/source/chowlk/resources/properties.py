@@ -183,7 +183,7 @@ def obtain_elements_property_chain(diagram_model, relations, relation_id):
         # Get the object property
         relation = relations[relation_id]
         # Get the object property name
-        text = f" {base_directive_prefix(relation["prefix"])}{relation["uri"]} "
+        text = f" {base_directive_prefix(relation['prefix'])}{relation['uri']} "
 
         # Check if the end of path that defines the property chain axiom has been reached
         if "aggregation" in relation:
