@@ -118,6 +118,7 @@ docker compose up
 git clone https://github.com/oeg-upm/Chowlk.git
 git checkout webservice
 ```
+### Install python 3.12.6
 
 ### Requirements:
 ```bash
